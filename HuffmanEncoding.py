@@ -24,6 +24,10 @@ class HuffmanEncoder:
         self.num = count()
 
     def transform(self):
+        """
+        Transform into zip format
+        :return: Zip format with (frequency, counter, tree)
+        """
         node_list = []
         for i in range(len(self.seq)):
             new_node = Node()
@@ -33,6 +37,10 @@ class HuffmanEncoder:
         return list(zip(self.freq, self.num, node_list))
 
     def huffman_encoding(self):
+        """
+        Encode using Huffman Algorithm
+        :return: Huffman encoding tree
+        """
         res = self.transform()
         heapq.heapify(res)
         while len(res) > 1:
@@ -52,6 +60,10 @@ class HuffmanDecoder:
         self.tree = tree
 
     def mapping(self):
+        """
+        Use input tree to extract encoding scheme
+        :return: Encoding scheme
+        """
         prefix_dict = {}
         stack = [(self.tree, '')]
         while stack:
@@ -64,6 +76,12 @@ class HuffmanDecoder:
         return prefix_dict
 
     def huffman_decoding(self, seq, tree):
+        """
+        Use existing Huffman encoding tree to decode messages
+        :param seq: encoded message
+        :param tree: Huffman encoding tree
+        :return: Decoded message
+        """
         root, res = tree, ''
         while len(seq) > 0:
             while root.key is None:
