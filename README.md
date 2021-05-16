@@ -1,4 +1,4 @@
-# Trie
+# Trie and Optimal Binary Search Tree
 ## Phase 1:  
 Leetcode Question Trie Python 3 Implementation and **Extension**: https://leetcode.com/problems/implement-trie-prefix-tree/  
 ## Phase 2:  
