@@ -154,7 +154,7 @@ class OptimalBSTSolver:
                 k = i + j
                 # Calculate the frequency sum between j and k
                 freq_sum[j, k] = freq_sum[j, k - 1] + self.freq[k - 1]
-                # Calculate the optimal cost using the same formulat in the recursion space
+                # Calculate the optimal cost using the same formula in the recursion space
                 optimal_cost[j, k] = min(optimal_cost[j, root] + optimal_cost[root + 1, k] for root in range(j, k))
                 optimal_cost[j, k] += freq_sum[j, k]
         return optimal_cost[0, len(self.freq)]
